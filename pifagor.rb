@@ -1,7 +1,7 @@
 puts 'Введите три стороны треуголника:'
-a = gets.chomp.to_i
-b = gets.chomp.to_i
-c = gets.chomp.to_i
+a = gets.chomp.to_f
+b = gets.chomp.to_f
+c = gets.chomp.to_f
 
 arr = Array.new
 arr << a
