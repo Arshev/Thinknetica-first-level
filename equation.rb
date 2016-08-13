@@ -1,9 +1,9 @@
 puts 'Введите три коэффициента: '
-a = gets.chomp.to_f
-b = gets.chomp.to_f
-c = gets.chomp.to_f
+a = gets.chomp.to_f.round
+b = gets.chomp.to_f.round
+c = gets.chomp.to_f.round
 
-p discriminant = b**2 - 4 * a * c
+discriminant = b**2 - 4 * a * c
 
 if discriminant < 0
 	puts 'Корней нет!'
