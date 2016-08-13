@@ -17,3 +17,7 @@ if cat1**2 + cat2**2 == hypotenuse**2
 else
 	puts 'Треуголник НЕ прямоуголный!'
 end
+
+if cat1 == cat2 || cat1 == hypotenuse || cat2 == hypotenuse
+	puts 'Треуголник равнобедренный!'
+end
