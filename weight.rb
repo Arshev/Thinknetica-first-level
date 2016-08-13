@@ -1,12 +1,12 @@
-puts 'Привет! Какой у тебя рост?'
-weight = gets.chomp.to_i
+puts 'Привет! Как тебя зовут?'
+name = gets.chomp
 puts 'Какой у тебя вес?'
-growth = gets.chomp.to_i
+weight = gets.chomp.to_i
 
-result = growth - weight
+result = weight - 110
 
 if result < 0
 	puts 'Ваш вес уже оптимальный'
 else 
-	puts 'Твой вес равен #{weight}, это много для твоего роста! Пора худеть!'
+	puts "Твой вес равен #{weight}, это много! Пора худеть!"
 end	
