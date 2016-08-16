@@ -26,6 +26,7 @@ while true
 	hh2[index].each do |key, value|
 		x = key.to_f * value.to_f
 		arr_sum << x
+	puts "Сумма за данный товар: #{x}"
 
 	end
 
