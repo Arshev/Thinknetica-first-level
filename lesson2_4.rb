@@ -2,9 +2,7 @@
 hh = {}
 vol = ["a", "e", "i", "o", "u"]
 ('a'..'z').each_with_index do |letter, index|
-  if vol.include?(letter)
-	   	hh[letter] = index
-	end
+ 	hh[letter] = index + 1 if vol.include?(letter)
 end
 	
 p hh
