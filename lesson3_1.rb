@@ -53,17 +53,5 @@ class Train < Route
     @number_carriage += quantity if self.speed == 0 && quantity <= 1 && quantity >= -1
   end 
 
-  def current_station
-
-  end 
-
-  def next_station
-
-  end
-  
-  def prev_station
-
-  end  
-
 end
 

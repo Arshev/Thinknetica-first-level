@@ -23,7 +23,21 @@ class Route < Station
       puts station
     end  
   end
+
+  def next_station(current)
+    if current != @stations.last
+      @stations.at(@stations.index(current) + 1)
+    end
+  end
   
+  def prev_station(current)
+    if current != @stations.first
+      @stations.at(@stations.index(current) - 1)
+    end
+  end  
+
+   def station
+     puts @stations
+  end  
   
 end
-

@@ -42,6 +42,11 @@ train = Train.new(3, 'Passenger', 5)
 route = Route.new('Station start', 'Station last')
 station = Station.new('Station 1')
 
+
+
+
+
+
 puts '_________________________________'
 
 train.start(50)
@@ -66,3 +71,7 @@ station.arrival_train(789, 'Cargo')
 station.departure_train(789)
 station.list_trains_in_station
 station.list_trains_type('Cargo')
+
+
+route.next_station('Station 2')
+route.station
