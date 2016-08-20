@@ -27,10 +27,3 @@ class Route < Station
   
 end
 
-route = Route.new('Station start', 'Station last')
-route.add_station('Station 2')
-route.add_station('Station 3')
-route.delete_station('Station 3')
-route.look_station
-
-station.list_trains_in_station

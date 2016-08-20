@@ -10,6 +10,7 @@
 
 require_relative 'lesson3_2.rb'
 
+
 class Train < Route
 
   TYPE = ['Cargo', 'Passenger']
@@ -66,13 +67,3 @@ class Train < Route
 
 end
 
-train = Train.new(3, 'Passenger', 5)
-route = Route.new('Station start', 'Station last')
-station = Station.new('Station 1')
-
-train.start(50)
-train.number_train
-train.current_speed
-train.add_carriage(-1)
-train.number_carriage
-train.type(0)

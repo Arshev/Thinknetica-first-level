@@ -1,3 +1,67 @@
+# Класс Station (Станция):
+# Имеет название, которое указывается при ее создании
+# Может принимать поезда (по одному за раз)
+# Может показывать список всех поездов на станции, находящиеся в текущий момент
+# Может показывать список поездов на станции по типу (см. ниже): кол-во грузовых, пассажирских
+# Может отправлять поезда (по одному за раз, при этом, поезд удаляется из списка поездов, находящихся на станции).
+
+class Station
+
+  def initialize(name_station)
+    @name_station = name_station
+    @trains = {}
+  end
+
+  def arrival_train(number_train, type_train)
+    @trains[number_train] = type_train
+  end
+  
+  def list_trains_in_station
+    sorted_trains = @trains.keys.each {|train| puts train}
+    puts "Trains in the station: #{sorted_trains}"  
+  end
+
+  def list_trains_type(type_train)
+    sort_trains = @trains.select{|number_train, type| type == type_train}
+    sorted_trains = sort_trains.keys.each {|train| puts train}
+    puts "Sorted trains in the station: #{sorted_trains}"
+  end
+
+  def departure_train(number_train)
+    @trains.delete(number_train)
+    puts "Train #{number_train} departed"
+  end  
+
+end
+
+# Класс Route (Маршрут):
+# Имеет начальную и конечную станцию, а также список промежуточных станций. Начальная и конечная станции указываютсся при создании маршрута, а промежуточные могут добавляться между ними.
+# Может добавлять промежуточную станцию в список
+# Может удалять промежуточную станцию из списка
+# Может выводить список всех станций по-порядку от начальной до конечной
+
+
+class Route < Station
+  def initialize(start_station,last_station)
+    @stations = [start_station,last_station]
+  end
+
+  def add_station(station)
+    @stations.insert(-2,station)
+  end  
+
+  def delete_station(station)
+    @stations.delete(station)
+  end  
+
+  def look_station
+    @stations.each do |station|
+      puts station
+    end  
+  end
+end
+
+# Класс Train (Поезд):
 # Имеет номер (произвольная строка) и тип (грузовой, пассажирский) и количество вагонов, эти данные указываются при создании экземпляра класса
 # Может набирать скорость
 # Может показывать текущую скорость
@@ -7,7 +71,6 @@
 # Может принимать маршрут следования (объект класса Route)
 # Может перемещаться между станциями, указанными в маршруте.
 # Показывать предыдущую станцию, текущую, следующую, на основе маршрута
-
 
 class Train < Route
 
@@ -66,58 +129,14 @@ class Train < Route
 end
 
 
-class Route < Station
-  def initialize(start_station,last_station)
-    @stations = [start_station,last_station]
-  end
 
-  def add_station(station)
-    @stations.insert(-2,station)
-  end  
 
-  def delete_station(station)
-    @stations.delete(station)
-  end  
 
-  def look_station
-    @stations.each do |station|
-      puts station
-    end  
-  end
-  
-  
-end
-
-class Station
-
-  def initialize(name_station)
-    @name_station = name_station
-    @trains = {}
-  end
-
-  def arrival_train(number_train, type_train)
-    @trains[number_train] = type_train
-  end
-  
-  def list_trains_in_station
-    sorted_trains = @trains.keys.each {|train| puts train}
-    puts "Trains in the station: #{sorted_trains}"  
-  end
-
-  def list_trains_type(type_train)
-    sort_trains = @trains.select{|number_train, type| type == type_train}
-    sorted_trains = sort_trains.keys.each {|train| puts train}
-    puts "Sorted trains in the station: #{sorted_trains}"
-  end
-
-  def departure_train(number_train)
-    @trains.delete(number_train)
-    puts "Train #{number_train} departed"
-  end  
-
-end
 
 train = Train.new(3, 'Passenger', 5)
+route = Route.new('Station start', 'Station last')
+station = Station.new('Station 1')
+
 train.start(50)
 train.number_train
 train.current_speed
@@ -125,7 +144,7 @@ train.add_carriage(-1)
 train.number_carriage
 train.type(0)
 
-route = Route.new('Station start', 'Station last')
+
 route.add_station('Station 2')
 route.add_station('Station 3')
 route.delete_station('Station 3')
@@ -133,7 +152,7 @@ route.look_station
 
 station.list_trains_in_station
 
-station = Station.new('Station 1')
+
 station.arrival_train(123,'Cargo')
 station.arrival_train(456, 'Passenger')
 station.arrival_train(789, 'Cargo')

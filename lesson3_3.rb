@@ -4,7 +4,7 @@
 # Может показывать список поездов на станции по типу (см. ниже): кол-во грузовых, пассажирских
 # Может отправлять поезда (по одному за раз, при этом, поезд удаляется из списка поездов, находящихся на станции).
 
-require_relative 'lesson3_1.rb'
+
 
 
 class Station
@@ -35,8 +35,31 @@ class Station
   end  
 
 end
+require_relative 'lesson3_2.rb'
+require_relative 'lesson3_1.rb'
 
+train = Train.new(3, 'Passenger', 5)
+route = Route.new('Station start', 'Station last')
 station = Station.new('Station 1')
+
+puts '_________________________________'
+
+train.start(50)
+train.number_train
+train.current_speed
+train.add_carriage(-1)
+train.number_carriage
+train.type(0)
+
+puts '_________________________________'
+
+route.add_station('Station 2')
+route.add_station('Station 3')
+route.delete_station('Station 3')
+route.look_station
+
+puts '_________________________________'
+
 station.arrival_train(123,'Cargo')
 station.arrival_train(456, 'Passenger')
 station.arrival_train(789, 'Cargo')
