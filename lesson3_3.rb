@@ -58,8 +58,8 @@ station = Station.new('Station 1')
 
 # puts '_________________________________'
 
- route.add_station('Station 2')
- route.add_station('Station 3')
+ # route.add_station('Station 2')
+ # route.add_station('Station 3')
 # route.delete_station('Station 3')
 # route.look_station
 
@@ -75,7 +75,7 @@ station = Station.new('Station 1')
 
 # route.next_station('Station 2')
 # route.station
-train.set_route(['Station Start', 'Station Last'])
-train.current_station
-train.prev_station
-train.current_station
+# train.set_route(['Station Start', 'Station Last'])
+# train.current_station
+# train.prev_station
+# train.current_station
