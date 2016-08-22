@@ -11,15 +11,17 @@
 require_relative 'lesson3_2.rb'
 
 
-class Train < Route
+class Train
 
   TYPE = ['Cargo', 'Passenger']
   attr_accessor :speed
+  attr_accessor :route
 
-  def initialize(number_train, type_train, number_carriage)
+  def initialize(number_train, type_train, number_carriage, station_index)
     @number_train = number_train
     @type_train = type_train
     @number_carriage = number_carriage
+    @station_index = station_index
   end
 
   def start(speed)
@@ -51,6 +53,22 @@ class Train < Route
 
   def add_carriage(quantity)
     @number_carriage += quantity if self.speed == 0 && quantity <= 1 && quantity >= -1
+  end 
+
+  def set_route(route)
+    self.route = route
+  end  
+
+  def current_station
+    p self.route[@station_index]
+  end
+
+  def next_station
+    @station_index += 1
+  end 
+
+  def prev_station
+    @station_index -= 1
   end 
 
 end

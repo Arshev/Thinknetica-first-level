@@ -5,7 +5,7 @@
 # Может выводить список всех станций по-порядку от начальной до конечной
 
 
-class Route < Station
+class Route
   def initialize(start_station,last_station)
     @stations = [start_station,last_station]
   end
@@ -19,25 +19,10 @@ class Route < Station
   end  
 
   def look_station
+    x = 0
     @stations.each do |station|
-      puts station
+      x += 1
+    puts "#{x}. #{station}"
     end  
   end
-
-  def next_station(current)
-    if current != @stations.last
-      @stations.at(@stations.index(current) + 1)
-    end
-  end
-  
-  def prev_station(current)
-    if current != @stations.first
-      @stations.at(@stations.index(current) - 1)
-    end
-  end  
-
-   def station
-     puts @stations
-  end  
-  
 end
