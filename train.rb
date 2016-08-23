@@ -1,8 +1,9 @@
 class Train
 
-  TYPE = ['Cargo', 'Passenger']
   attr_accessor :speed
   attr_accessor :route
+
+  TYPE = ['Cargo', 'Passenger']
 
   def initialize(number_train, type_train, number_carriage, station_index)
     @number_train = number_train
@@ -11,31 +12,25 @@ class Train
     @station_index = station_index
   end
 
-  def start(speed)
-    self.speed = speed
-    puts 'Train start!'
-  end
-
-  def stop
-    self.speed = 0
-    puts 'Train stop!'
-  end
-
   def type(index)
     @type_train = Train::TYPE[index]
     puts "Type of train: #{@type_train}"
   end
 
-  def number_train
-    puts "Number train: #{@number_train}"
-  end 
+  def start(speed)
+    self.speed = speed
+  end
 
   def current_speed
     puts "Current speed: #{self.speed}"
   end
 
+  def stop
+    self.speed = 0
+  end
+
   def number_carriage
-    puts "Number carriage: #{@number_carriage}"
+    @number_carriage
   end
 
   def add_carriage(quantity)
@@ -46,16 +41,18 @@ class Train
     self.route = route
   end  
 
-  def current_station
-    p self.route.stations[@station_index]
+  def current_station(route)
+    route[@station_index]
   end
 
   def next_station
-    @station_index += 1
+   self.route.stations[@station_index + 1]
   end 
 
   def prev_station
-    @station_index -= 1
+    self.route.stations[@station_index - 1]
   end 
 
-end
+
+end  
+

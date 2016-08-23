@@ -1,14 +1,13 @@
 class Station
-
   def initialize(name_station)
     @name_station = name_station
     @trains = {}
-  end
+  end  
 
   def arrival_train(number_train, type_train)
     @trains[number_train] = type_train
   end
-  
+
   def list_trains_in_station
     sorted_trains = @trains.keys.each {|train| puts train}
     puts "Trains in the station: #{sorted_trains}"  
@@ -24,5 +23,4 @@ class Station
     @trains.delete(number_train)
     puts "Train #{number_train} departed"
   end  
-
 end
