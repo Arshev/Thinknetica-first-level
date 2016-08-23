@@ -1,4 +1,6 @@
 class Route
+  attr_accessor :route
+  attr_accessor :stations
   def initialize(start_station,last_station)
     @stations = [start_station,last_station]
   end

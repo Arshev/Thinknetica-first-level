@@ -8,7 +8,9 @@ require_relative 'cargo_carriage'
 require_relative 'passenger_carriage'
 
 
-
+train = Train.new(3, 'Passenger', 5, 1)
+route = Route.new('Station start', 'Station last')
+stations = Station.new('Station 1')
 
 
 
@@ -41,9 +43,8 @@ require_relative 'passenger_carriage'
 # station.list_trains_type('Cargo')
 
 
-# route.next_station('Station 2')
-# route.station
-# train.set_route(['Station Start', 'Station Last'])
-# train.current_station
-# train.prev_station
-# train.current_station
+ # route.stations
+train.set_route(['Station Start', 'Station Last'])
+ train.current_station(stations)
+ train.prev_station
+ train.current_station(stations)

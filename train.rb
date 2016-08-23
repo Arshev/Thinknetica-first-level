@@ -46,8 +46,8 @@ class Train
     self.route = route
   end  
 
-  def current_station
-    p self.route[@station_index]
+  def current_station(stations)
+    p self.route.stations[@station_index]
   end
 
   def next_station
