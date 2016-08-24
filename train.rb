@@ -2,19 +2,17 @@ class Train
 
   attr_accessor :speed
   attr_accessor :route
+  attr_accessor :carriage
+  attr_accessor :type_train
+  attr_reader :type
 
-  TYPE = ['Cargo', 'Passenger']
+  TYPE = {cargo: 'Cargo', passenger: 'Passenger'}
 
-  def initialize(number_train, type_train, number_carriage, station_index)
+  def initialize(number_train, station_index)
     @number_train = number_train
-    @type_train = type_train
-    @number_carriage = number_carriage
     @station_index = station_index
-  end
-
-  def type(index)
-    @type_train = Train::TYPE[index]
-    puts "Type of train: #{@type_train}"
+    @speed = 0
+    @carriage = []
   end
 
   def start(speed)
@@ -30,12 +28,8 @@ class Train
   end
 
   def number_carriage
-    @number_carriage
+    @carriage.count
   end
-
-  def add_carriage(quantity)
-    @number_carriage += quantity if self.speed == 0 && quantity <= 1 && quantity >= -1
-  end 
 
   def set_route(route)
     self.route = route
@@ -52,6 +46,36 @@ class Train
   def prev_station
     self.route.stations[@station_index - 1]
   end 
+
+  def add_carriage(carriage)
+    if self.speed > 0
+      puts "Train start! Can't add carriage"
+    elsif carriage.type == self.type
+      puts "Another type of train!"
+    else
+      add_carriage!(carriage.type)
+    end
+  end
+
+  def del_carriage(carriage)
+    if self.speed > 0
+      puts "Train start! Can't unhook carriage"
+    else
+      del_carriage!(carriage.type)
+    end
+  end
+
+  private
+
+  # Добавлять/Удалять вагоны напрямую из интерфеса нельзя
+
+  def add_carriage!(carriage)
+  self.carriage << carriage
+  end
+
+  def del_carriage!(carriage)
+  self.carriage.delete_at(-1)
+  end
 
 
 end  
