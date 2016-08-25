@@ -31,4 +31,5 @@ class Station
     @trains.delete(number_train)
     puts "Train #{number_train} departed"
   end  
+  
 end
