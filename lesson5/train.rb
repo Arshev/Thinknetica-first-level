@@ -8,15 +8,21 @@ class Train
   attr_accessor :type_train
   attr_accessor :type
 
+  @@number_train = 0
 
   TYPE = {cargo: 'Cargo', passenger: 'Passenger'}
 
   def initialize(number_train, station_index)
-    @number_train = number_train
+    @@number_train = number_train
     @station_index = station_index
     @speed = 0
     @carriage = []
+    @@object = self
   end
+
+  def self.find(number_train)
+    number_train == @@number_train ? @@object : puts
+  end  
 
   def start(speed)
     self.speed = speed
