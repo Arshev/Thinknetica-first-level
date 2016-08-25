@@ -1,5 +1,7 @@
 class Train
 
+  include Company
+
   attr_accessor :speed
   attr_accessor :route
   attr_accessor :carriage

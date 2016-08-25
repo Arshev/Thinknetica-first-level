@@ -1,7 +1,9 @@
 module Company
 
-  def company(company)
-    @company = company
+  attr_accessor :company_name
+
+  def company(company_name)
+    @company_name = company_name
   end
   
 end  
