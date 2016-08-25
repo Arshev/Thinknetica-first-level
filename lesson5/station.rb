@@ -1,15 +1,15 @@
 class Station
 
-  @@all = 0
+  @@station_all = []
 
   def initialize(name_station)
     @name_station = name_station
     @trains = {}
-    @@all += 1
+    @@station_all << self
   end  
 
   def self.all
-    @@all
+    @@station_all
   end  
 
   def arrival_train(number_train, type_train)
