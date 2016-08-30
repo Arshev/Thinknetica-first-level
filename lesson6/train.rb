@@ -30,12 +30,6 @@ class Train
     false
   end
 
-  def validate!
-    raise "Non valid number format" if @number_train.nil?
-    raise "Number has invalid format" if @number_train !~ NUMBER_FORMAT
-    true
-  end  
-
   def self.find(number_train)
     @@trains[number_train]
   end 
@@ -100,6 +94,13 @@ class Train
   self.carriage.delete_at(-1)
   end
 
+
+  def validate!
+    raise "An empty value!" if @number_train.nil?
+    raise "Number has invalid format!" if @number_train !~ NUMBER_FORMAT
+    raise "Station index wrong! #{@station_index}!!!" if @station_index != 0 || @station_index != 1
+    true
+  end  
 
 end  
 

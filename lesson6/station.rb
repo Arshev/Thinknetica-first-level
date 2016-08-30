@@ -6,7 +6,14 @@ class Station
     @name_station = name_station
     @trains = {}
     @@station_all << self
+    validate!
   end  
+
+  def valid?
+    validate!
+  rescue
+    false
+  end
 
   def self.all
     @@station_all
@@ -30,6 +37,15 @@ class Station
   def departure_train(number_train)
     @trains.delete(number_train)
     puts "Train #{number_train} departed"
+  end  
+
+  protected
+
+  def validate!
+    raise "An empty value!" if @name_station.nil?
+    raise "No string!" if @name_station.class != String
+    raise "Name is too short!" if @name_station.length < 3
+    true
   end  
   
 end
