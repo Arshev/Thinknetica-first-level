@@ -13,7 +13,7 @@ class Train
 
   TYPE = {cargo: 'Cargo', passenger: 'Passenger'}
 
-  NUMBER_FORMAT = /^([a-z|\d){3}(\W?)([a-z]|\d){2}$/i
+  NUMBER_FORMAT = /^\w{3}\W?\w{2}$/i
 
   def initialize(number_train, station_index)
     @number_train = number_train
@@ -21,13 +21,19 @@ class Train
     @speed = 0
     @carriage = []
     @@trains[number_train] = self
-    valid?
+    validate!
   end
 
   def valid?
-    raise "Non valid number format" if @number_train.nil?
-    true
+    validate!
+  rescue
+    false
+  end
 
+  def validate!
+    raise "Non valid number format" if @number_train.nil?
+    raise "Number has invalid format" if @number_train !~ NUMBER_FORMAT
+    true
   end  
 
   def self.find(number_train)
