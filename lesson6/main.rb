@@ -12,13 +12,13 @@ def programm
   puts 'Введите номер поезда формата 77F-7G:'
   number_train = gets.chomp.to_s
   train = Train.new(number_train)
-  puts "Вы создали поезд c номером #{number_train} и указали начальную станцию с номером #{number_start_station}"
+  puts "Вы создали поезд c номером #{number_train}"
 end
 
 begin
   programm
   rescue RuntimeError => e
+    puts "Error: #{e.inspect}"
   retry if e
-  puts "Error: #{e.inspect}"
 end
 
