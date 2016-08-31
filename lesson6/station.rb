@@ -5,8 +5,8 @@ class Station
   def initialize(name_station)
     @name_station = name_station
     @trains = {}
-    @@station_all << self
     validate!
+    @@station_all << self
   end  
 
   def valid?

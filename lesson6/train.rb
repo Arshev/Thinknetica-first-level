@@ -15,13 +15,13 @@ class Train
 
   NUMBER_FORMAT = /^\w{3}\W?\w{2}$/i
 
-  def initialize(number_train, station_index)
+  def initialize(number_train, station_index = 0)
     @number_train = number_train
     @station_index = station_index
     @speed = 0
     @carriage = []
-    @@trains[number_train] = self
     validate!
+    @@trains[number_train] = self
   end
 
   def valid?
@@ -98,7 +98,6 @@ class Train
   def validate!
     raise "An empty value!" if @number_train.nil?
     raise "Number has invalid format!" if @number_train !~ NUMBER_FORMAT
-    raise "Station index wrong! #{@station_index}!!!" if @station_index != 0 || @station_index != 1
     true
   end  
 

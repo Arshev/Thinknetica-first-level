@@ -1,9 +1,7 @@
 class Route
 
   attr_accessor :stations
-  attr_accessor :start_station
-  attr_accessor :last_station
-
+  
   def initialize(start_station,last_station)
     @stations = [start_station,last_station]
     validate!
@@ -35,8 +33,7 @@ protected
 
   def validate!
     raise "An empty value!" if @stations.empty?
-    raise "Name is too short!" if @stations[0].length < 3
-    raise "Name is too short!" if @stations[1].length < 3
+#    raise "Pass an object of another class!" if .class != Station
     true
   end  
 

@@ -11,18 +11,14 @@ require_relative 'passenger_carriage'
 def programm
   puts 'Введите номер поезда формата 77F-7G:'
   number_train = gets.chomp.to_s
-  puts 'Введите номер начальной станции 0 или 1'
-  number_start_station = gets.chomp.to_i
-  train = Train.new(number_train,number_start_station)
+  train = Train.new(number_train)
   puts "Вы создали поезд c номером #{number_train} и указали начальную станцию с номером #{number_start_station}"
 end
 
-attempt = 0
 begin
   programm
   rescue RuntimeError => e
-  #attempt += 1
-  #retry if e
+  retry if e
   puts "Error: #{e.inspect}"
 end
 
