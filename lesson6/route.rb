@@ -33,7 +33,7 @@ protected
 
   def validate!
     raise "An empty value!" if @stations.empty?
-    raise "Pass an object of another class!" if @stations.first.class != Station
+    raise "Pass an object of another class!" unless @stations.first.is_a? Station
     true
   end  
 
