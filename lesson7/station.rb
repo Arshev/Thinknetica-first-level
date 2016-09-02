@@ -15,6 +15,10 @@ class Station
     false
   end
 
+  def block_trains(&block)
+    @trains.each_key { |train| block.call(train) }
+  end
+
   def self.all
     @@station_all
   end  
