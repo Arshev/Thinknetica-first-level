@@ -30,6 +30,10 @@ class Train
     false
   end
 
+  def block_carriages(&block)
+    @carriage.each { |carriage| block.call(carriage) }
+  end
+
   def self.find(number_train)
     @@trains[number_train]
   end 
@@ -70,7 +74,7 @@ class Train
     if self.speed > 0 || carriage.type != @type_train
       puts "Can't add carriage: current speed: #{self.speed} type of train: #{@type_train}"
     else
-      add_carriage!(carriage.type)
+      add_carriage!(carriage)
     end
   end
 
@@ -78,7 +82,7 @@ class Train
     if self.speed > 0
       puts "Train start! Can't unhook carriage"
     else
-      del_carriage!(carriage.type)
+      del_carriage!(carriage)
     end
   end
 

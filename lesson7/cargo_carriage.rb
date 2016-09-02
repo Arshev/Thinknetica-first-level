@@ -1,9 +1,10 @@
 class CargoCarriage < Carriage
 
-  def initialize(volume)
+  def initialize(volume = 0)
     @type = 'Cargo'
     @volume = volume
     @dif_volume = volume
+    @occupied_volume = 0
   end 
 
   def take_volume(quantity)

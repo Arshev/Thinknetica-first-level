@@ -29,13 +29,13 @@ class Station
 
   def list_trains_in_station
     sorted_trains = @trains.keys.each {|train| puts train}
-    puts "Trains in the station: #{sorted_trains}"  
+#    puts "Trains in the station: #{sorted_trains}"  
   end
 
   def list_trains_type(type_train)
     sort_trains = @trains.select{|number_train, type| type == type_train}
     sorted_trains = sort_trains.keys.each {|train| puts train}
-    puts "Sorted trains in the station: #{sorted_trains}"
+#    puts "Sorted trains in the station: #{sorted_trains}"
   end
 
   def departure_train(number_train)

@@ -4,6 +4,7 @@ class PassengerCarriage < Carriage
     @type = 'Passenger'
     @seats = seats
     @places = seats
+    @occupied_place = 0
   end
 
   def take_place
