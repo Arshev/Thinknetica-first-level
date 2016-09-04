@@ -1,9 +1,8 @@
 class Route
-
   attr_accessor :stations
-  
-  def initialize(start_station,last_station)
-    @stations = [start_station,last_station]
+
+  def initialize(start_station, last_station)
+    @stations = [start_station, last_station]
     validate!
   end
 
@@ -14,8 +13,8 @@ class Route
   end
 
   def add_station(station)
-    @stations.insert(-2,station)
-  end 
+    @stations.insert(-2, station)
+  end
 
   def delete_station(station)
     @stations.delete(station)
@@ -25,16 +24,15 @@ class Route
     x = 0
     @stations.each do |station|
       x += 1
-    puts "#{x}. #{station}"
-    end  
+      puts "#{x}. #{station}"
+    end
   end
 
-protected
+  protected
 
   def validate!
-    raise "An empty value!" if @stations.empty?
-    raise "Pass an object of another class!" unless @stations.first.is_a? Station
+    raise 'An empty value!' if @stations.empty?
+    raise 'Pass an object of another class!' unless @stations.first.is_a? Station
     true
-  end  
-
-end 
+  end
+end

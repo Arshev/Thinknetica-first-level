@@ -1,5 +1,4 @@
 class PassengerCarriage < Carriage
-
   def initialize(seats)
     @type = 'Passenger'
     @seats = seats
@@ -11,12 +10,11 @@ class PassengerCarriage < Carriage
     @places -= 1
   end
 
-  def occupied_place 
+  def occupied_place
     @occupied_place = @seats - @places
   end
 
-  def free_place 
+  def free_place
     @free_place = @seats - @occupied_place
   end
-
-end  
+end
