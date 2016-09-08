@@ -1,5 +1,7 @@
 class Carriage
   include Company
+  include Accessors
+  include Validation
   attr_accessor :type
 
   def number

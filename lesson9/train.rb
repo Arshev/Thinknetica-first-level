@@ -1,5 +1,7 @@
 class Train
   include Company
+  include Accessors
+  include Validation
 
   attr_accessor :speed
   attr_accessor :route

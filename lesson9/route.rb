@@ -1,4 +1,6 @@
 class Route
+  include Accessors
+  include Validation
   attr_accessor :stations
 
   def initialize(start_station, last_station)

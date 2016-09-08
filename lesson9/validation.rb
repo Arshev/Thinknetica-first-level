@@ -19,7 +19,7 @@ module Validation
   end
 
   module InstanceMethods
-    # protected
+    protected
 
     def validate!
       self.class.class_variable_get(:@@validations).each do |validation, args|

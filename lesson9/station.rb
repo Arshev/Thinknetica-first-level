@@ -1,4 +1,6 @@
 class Station
+  include Accessors
+  include Validation
   @@station_all = []
 
   def initialize(name_station)
