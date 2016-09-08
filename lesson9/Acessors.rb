@@ -39,5 +39,13 @@ module Accessors
       end
   end
   
+  def strong_attr_accessor(attribute_name, attribute_class)
+    var_name = "@#{attribute_name}".to_sym
+    define_method(attribute_name) { instance_variable_get(var_name) }
+    define_method("@#{attribute_name}".to_sym) do |attribute|
+      raise TypeError unless attribute.is_a?(attribute_class)
+      instance_variable_set(var_name, attribute_class)
+    end
+  end
 
 end
