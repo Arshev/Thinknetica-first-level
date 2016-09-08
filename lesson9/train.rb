@@ -19,14 +19,7 @@ class Train
     @station_index = station_index
     @speed = 0
     @carriage = []
-    validate!
     @@trains[number_train] = self
-  end
-
-  def valid?
-    validate!
-  rescue
-    false
   end
 
   def block_carriages
@@ -97,9 +90,4 @@ class Train
     carriage.delete_at(-1)
   end
 
-  def validate!
-    raise 'An empty value!' if @number_train.nil?
-    raise 'Number has invalid format!' if @number_train !~ NUMBER_FORMAT
-    true
-  end
 end
