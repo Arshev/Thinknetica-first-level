@@ -6,8 +6,9 @@ module Accessors
   module ClassMethods
     def attr_accessor_with_history(*attributes)
       attributes.each do |attribute|
+        @history ||= {}
         attribute_name = "@#{attribute}".to_sym
-        define_method(attribute.to_sym) { instance_variable_get(attribute_name) }
+        define_method(attrяibute.to_sym) { instance_variable_get(attribute_name) }
         define_method("#{attribute}=".to_sym) do |value|
           instance_variable_set(attribute_name, value)
           if @history[attribute_name]

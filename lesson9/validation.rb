@@ -12,13 +12,13 @@ module Validation
     end
   end
 
-  def valid?
-    validate!
-  rescue
-    false
-  end
-
   module InstanceMethods
+      def valid?
+         validate!
+      rescue
+        false
+      end
+
     protected
 
     def validate!
